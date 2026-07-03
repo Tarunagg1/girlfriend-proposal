@@ -176,6 +176,7 @@ a {
   opacity: 0;
   transition: opacity 1s;
   transition-delay: 1s;
+  pointer-events: none;
 }
 
 #letter {
@@ -197,6 +198,7 @@ a {
   overflow: hidden;
   font-size: 16px;
   border: 1px solid #ffcfe0;
+  pointer-events: auto;
 }
 
 #letter h1 {
