@@ -25,6 +25,13 @@ body {
   color: var(--text);
   position: relative;
   transition: background 0.9s ease;
+  -webkit-text-size-adjust: 100%;
+}
+
+button,
+a {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body.warm-mode {

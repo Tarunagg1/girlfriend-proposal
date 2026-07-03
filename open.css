@@ -29,6 +29,13 @@ body {
   align-items: center;
   justify-content: center;
   color: #fff;
+  -webkit-text-size-adjust: 100%;
+}
+
+button,
+a {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .sparkle-field,
@@ -137,7 +144,6 @@ body {
   width: 300px;
   height: 300px;
   z-index: 8;
-  overflow: hidden;
 }
 
 #envelope > * {
@@ -375,11 +381,6 @@ body {
     line-height: 1.35;
   }
 
-  #letter.animate {
-    animation: makebig-stable-mobile 1.3s ease forwards;
-    animation-delay: 0.8s;
-  }
-
   #envelope button {
     min-height: 52px;
     font-size: 0.8rem;
@@ -402,12 +403,12 @@ body {
   }
 
   #letter.animate {
-    animation: makebig-stable-mobile 1.25s ease forwards;
-    animation-delay: 0.75s;
+    animation: makebig-mobile 2s forwards;
+    animation-delay: 1s;
   }
 }
 
-@keyframes makebig-stable-mobile {
+@keyframes makebig-mobile {
   0% {
     top: 105px;
     left: 15px;
@@ -415,18 +416,18 @@ body {
     bottom: 5px;
     font-size: 14px;
   }
-  55% {
-    top: 45px;
-    left: 12px;
-    right: 12px;
-    bottom: 12px;
+  33% {
+    top: -80px;
+    left: 20px;
+    right: 20px;
+    bottom: 145px;
     font-size: 14px;
   }
   100% {
-    top: 8px;
-    left: 8px;
-    right: 8px;
-    bottom: 8px;
-    font-size: 15px;
+    top: 18px;
+    left: -30px;
+    right: -20px;
+    bottom: -85px;
+    font-size: 19px;
   }
 }
