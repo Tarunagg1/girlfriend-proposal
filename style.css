@@ -1,0 +1,280 @@
+:root {
+  --night-1: #1f0a16;
+  --night-2: #4f1236;
+  --pink: #ff8fb8;
+  --soft-pink: #ffc4d8;
+  --gold: #ffe3a4;
+  --text: #fff6fb;
+  --shadow: #15070f80;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(150deg, var(--night-1), var(--night-2));
+  color: var(--text);
+  position: relative;
+  transition: background 0.9s ease;
+}
+
+body.warm-mode {
+  background: linear-gradient(145deg, #5a1c2f, #c04b6e, #f0a66a);
+}
+
+.romance-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 20% 20%, #ff8fb840, transparent 34%),
+    radial-gradient(circle at 75% 18%, #ffe3a43b, transparent 30%),
+    radial-gradient(circle at 50% 80%, #ff9bb12c, transparent 33%);
+  animation: glowShift 10s ease-in-out infinite;
+}
+
+.flower-rain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+.flower {
+  position: absolute;
+  top: -10%;
+  font-size: 16px;
+  color: var(--soft-pink);
+  text-shadow: 0 0 10px #ff9ec2;
+  opacity: 0;
+  animation: flowerFall linear infinite;
+}
+
+.celebration-card {
+  width: min(720px, 92vw);
+  background: linear-gradient(145deg, #ffffff12, #ffffff07);
+  border: 1px solid #ffffff33;
+  border-radius: 24px;
+  padding: 26px 22px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 24px 45px var(--shadow);
+  z-index: 2;
+  animation: cardUp 1s ease;
+}
+
+.tiny {
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.moment-line {
+  margin: 0 0 10px;
+  color: #ffd9b3;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  animation: glowText 1.8s ease-in-out infinite;
+}
+
+h1 {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(2.1rem, 5vw, 4.3rem);
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.line {
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.95;
+  margin: 8px auto;
+  max-width: 560px;
+}
+
+.center-heart {
+  width: 110px;
+  height: 110px;
+  margin: 18px auto;
+  position: relative;
+  transform: rotate(45deg);
+  background: linear-gradient(145deg, #ff5f98, #db2766);
+  box-shadow: 0 0 30px #ff74a0;
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+.center-heart::before,
+.center-heart::after {
+  content: "";
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: inherit;
+}
+
+.center-heart::before {
+  left: -55px;
+}
+
+.center-heart::after {
+  top: -55px;
+}
+
+#blessButton {
+  margin-top: 8px;
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 26px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #3f0f24;
+  background: linear-gradient(90deg, #ffd987, #ff9dc3);
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 10px 18px #3f112682;
+}
+
+#blessButton:hover {
+  transform: translateY(-2px) scale(1.03);
+}
+
+#blessButton.heart-jump {
+  animation: heartJump 0.42s ease;
+}
+
+#loveMessage {
+  margin-top: 12px;
+  font-size: 1.05rem;
+  color: var(--gold);
+  min-height: 30px;
+}
+
+.tap-counter {
+  margin-top: 6px;
+  color: #ffd7b8;
+  font-size: 0.93rem;
+  letter-spacing: 0.3px;
+}
+
+.forever-note {
+  margin-top: 12px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid #ffe6c980;
+  background: linear-gradient(120deg, #ffffff2e, #ffffff15);
+  box-shadow: 0 12px 26px #3e172673;
+  color: #fff9ef;
+  line-height: 1.5;
+  opacity: 0;
+  transform: translateY(10px) scale(0.98);
+  pointer-events: none;
+}
+
+.forever-note.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 14px;
+  color: #ffd7e7;
+  text-decoration: none;
+  border-bottom: 1px solid #ffd7e788;
+}
+
+.float-heart {
+  position: absolute;
+  bottom: 20%;
+  font-size: 18px;
+  color: #ffadc9;
+  opacity: 0.85;
+  animation: floatHeart 2s ease forwards;
+}
+
+@keyframes glowShift {
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes pulse {
+  50% {
+    transform: rotate(45deg) scale(1.1);
+  }
+}
+
+@keyframes cardUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes glowText {
+  50% {
+    color: #ffe9d0;
+    text-shadow: 0 0 12px #ffd3b2;
+  }
+}
+
+@keyframes heartJump {
+  50% {
+    transform: translateY(-4px) scale(1.08);
+  }
+}
+
+@keyframes flowerFall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: translateY(110vh) translateX(24px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes floatHeart {
+  0% {
+    transform: translateY(0) scale(0.9);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-120px) scale(1.5);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .celebration-card {
+    padding: 22px 16px;
+    border-radius: 18px;
+  }
+
+  .line {
+    font-size: 0.94rem;
+  }
+
+  #blessButton {
+    width: 100%;
+  }
+}
