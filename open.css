@@ -17,9 +17,11 @@ body {
   margin: 0;
   min-height: 100vh;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   font-family: "Poppins", sans-serif;
-  background: radial-gradient(circle at 20% 20%, #ff7eaa33, transparent 30%),
+  background:
+    radial-gradient(circle at 20% 20%, #ff7eaa33, transparent 30%),
     radial-gradient(circle at 80% 15%, #ffd99b40, transparent 25%),
     linear-gradient(130deg, var(--bg-1), var(--bg-2), var(--bg-3));
   display: flex;
@@ -269,7 +271,10 @@ body {
   left: calc(150px - 85px);
   padding: 7px 12px;
   box-shadow: 0 16px 24px #4f2034a3;
-  transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    filter 0.35s ease;
 }
 
 #envelope button:hover {
@@ -335,23 +340,87 @@ body {
 @media (max-width: 700px) {
   body {
     justify-content: flex-start;
-    padding-top: 16px;
+    padding: 14px 10px 24px;
+    min-height: 100dvh;
   }
 
   .text {
     margin-top: 4px;
+    max-width: 95vw;
+  }
+
+  .text h1 {
+    font-size: clamp(1.9rem, 9vw, 2.6rem);
+  }
+
+  .text p {
+    margin-bottom: 12px;
   }
 
   .tap-panel {
     margin-bottom: 8px;
+    width: 95vw;
+    padding: 12px;
   }
 
   #envelope {
-    transform: scale(0.92);
+    transform: scale(0.86);
+    transform-origin: top center;
+    margin-bottom: 14px;
   }
 
   #letter p {
     font-size: 0.86rem;
     line-height: 1.35;
+  }
+
+  #envelope button {
+    min-height: 52px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 420px) {
+  #envelope {
+    transform: scale(0.78);
+    margin-bottom: -10px;
+  }
+
+  #letter h1 {
+    font-size: 1.85rem;
+  }
+
+  #letter p {
+    font-size: 0.8rem;
+    line-height: 1.28;
+  }
+
+  #letter.animate {
+    animation: makebig-mobile 2s forwards;
+    animation-delay: 1s;
+  }
+}
+
+@keyframes makebig-mobile {
+  0% {
+    top: 105px;
+    left: 15px;
+    right: 15px;
+    bottom: 5px;
+    font-size: 14px;
+  }
+  33% {
+    top: -80px;
+    left: 20px;
+    right: 20px;
+    bottom: 145px;
+    font-size: 14px;
+  }
+  100% {
+    top: 18px;
+    left: -30px;
+    right: -20px;
+    bottom: -85px;
+    font-size: 19px;
   }
 }
